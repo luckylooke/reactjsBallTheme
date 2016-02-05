@@ -171,16 +171,14 @@
 					}]
 				}],
 				ball = document.getElementById('ball');
-				
-				console.log(root);
 			
 			for (var i = 0; i < slides.length; i++) {
 				var sec = document.createElement('section'),
 					attrs = slides[i].attrs;
 				
 				for (var y = attrs.length; y--; ) {
-					var att = document.createAttribute(attrs[y].name);       // Create a "class" attribute
-					att.value = attrs[y].value || '';                           // Set the value of the class attribute
+					var att = document.createAttribute(attrs[y].name);       // Create an attribute
+					att.value = attrs[y].value || '';                           // Set the value of the attribute
 					sec.setAttributeNode(att);
 				}
 					
