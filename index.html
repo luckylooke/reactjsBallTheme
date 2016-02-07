@@ -133,48 +133,40 @@
 		<script>
 		/* global Reveal hljs */
 			var root = document.getElementsByClassName('slides')[0],
-				slides = [{
-					attrs:[{
-						name:'data-external',
-						value:'slides/slide01/slide01.html'
-					}]
-				},{
-					attrs:[{
-						name:'data-external',
-						value:'slides/slide02/slide02.html'
-					}]
-				},{
-					attrs:[{
-						name:'data-external',
-						value:'slides/slide03/slide03.html'
-					}]
-				},{
-					attrs:[{
-						name:'data-external',
-						value:'slides/slide04/slide04.html'
+				slides = [
+					'slides/slide01.html',
+					'slides/slide02.html',
+					'slides/slide03.html',
+					{
+						attrs:[{
+							name:'data-external',
+							value:'slides/slide04/slide04.html'
+						},{
+							name:'data-transition',
+							value:'slide'
+						},{
+							name:'data-background',
+							value:'#b5533c'
+						},{
+							name:'data-background-transition',
+							value:'zoom'
+						}]
 					},{
-						name:'data-transition',
-						value:'slide'
-					},{
-						name:'data-background',
-						value:'#b5533c'
-					},{
-						name:'data-background-transition',
-						value:'zoom'
-					}]
-				},{
-					attrs:[{
-						name:'data-external',
-						value:'slides/slide05/slide05.html'
-					},{
-						name:'data-markdown'
-					}]
-				}],
+						attrs:[{
+							name:'data-external',
+							value:'slides/slide05/slide05.html'
+						},{
+							name:'data-markdown'
+						}]
+					}],
 				ball = document.getElementById('ball');
 			
 			for (var i = 0; i < slides.length; i++) {
 				var sec = document.createElement('section'),
-					attrs = slides[i].attrs;
+					attrs = slides[i].attrs || [{
+                                                    name:'data-external',
+                                                    value: slides[i]
+                                                }];
 				
 				for (var y = attrs.length; y--; ) {
 					var att = document.createAttribute(attrs[y].name);       // Create an attribute
